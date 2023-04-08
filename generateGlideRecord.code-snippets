@@ -1,0 +1,16 @@
+{
+	"GlideRecord Query": {
+        "prefix": ["gr"],
+        "body": [
+            "var gr = new GlideRecord($1);",
+            "gr.query();",
+            "gs.info('RowCount - ' + gr.getRowCount());",
+			"gs.info('EncodedQuery - ' + gr.getEncodedQuery());",
+			"gs.info('-----TableData------');",
+			"while(gr.next()) {",
+    		"\tgs.info(gr.getValue($2));",
+			"}"
+        ],
+        "description": "Query tables using GlideRecord"
+    }
+}

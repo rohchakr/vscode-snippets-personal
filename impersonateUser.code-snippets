@@ -1,0 +1,23 @@
+{
+	"Impersonate User Query": {
+        "prefix": ["im"],
+        "body": [
+            "var userId = $1;",
+            "var curUser = gs.getSession().impersonate(userId);",
+			"",
+			"try {",
+			"\tgs.getSession().setInteractive(true);",
+			"\tmainFunction();",
+			"}",
+			"finally {",
+            "\tgs.getSession().setInteractive(false);",
+			"\tgs.getSession().impersonate(curUser);",
+			"}",
+			"",
+			"function mainFunction() {",
+    		"\t$2",
+			"}"
+        ],
+        "description": "Interactive user impersonation"
+    }
+}
